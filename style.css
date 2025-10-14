@@ -1,117 +1,171 @@
-/* --------- Global Styles --------- */
-body {
+/* ====== GLOBAL STYLES ====== */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #fafafa;
-  color: #333;
 }
 
-/* --------- Header --------- */
+body {
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ====== HEADER ====== */
 header {
-  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 40px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 16px 10%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.logo {
-  height: 60px;
+header .logo {
+  height: 55px;
 }
 
 nav a {
+  margin-left: 20px;
   text-decoration: none;
-  color: #333;
-  margin: 0 15px;
+  color: #444;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
-nav a:hover, nav a.active {
-  color: #4e7a64;
+nav a:hover,
+nav a.active {
+  color: #3c8c74;
 }
 
-/* --------- Hero Section --------- */
+/* ====== HERO SECTION ====== */
 .hero {
-  background-color: #f5f5f5;
   text-align: center;
-  padding: 50px 20px;
-}
-
-.hero.small {
-  padding: 30px 20px;
+  padding: 100px 20px;
+  background: linear-gradient(to right, #e8f5f1, #f9fdfc);
 }
 
 .hero h1 {
-  font-size: 2em;
+  font-size: 2.5rem;
+  color: #2b6b55;
   margin-bottom: 10px;
-  color: #4e7a64;
 }
 
 .hero p {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   color: #555;
 }
 
-/* --------- Schedule Form --------- */
+/* ====== MAIN CONTENT ====== */
+main {
+  padding: 40px 10%;
+}
+
+/* ====== SCHEDULE FORM ====== */
 .schedule {
-  padding: 40px 20px;
-  display: flex;
-  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background-color: #fff;
-  padding: 25px 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  max-width: 450px;
-  width: 100%;
+.schedule h1 {
+  text-align: center;
+  color: #2b6b55;
+  margin-bottom: 10px;
 }
 
-label {
+.schedule p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+form label {
+  display: block;
   font-weight: 600;
+  margin-bottom: 6px;
   color: #333;
 }
 
-input, select, button {
-  padding: 10px;
+form input,
+form select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 1em;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #3c8c74;
 }
 
 button {
-  background-color: #5b8a72;
-  color: #fff;
+  width: 100%;
+  background-color: #3c8c74;
+  color: white;
   border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1.1rem;
   cursor: pointer;
-  font-weight: bold;
   transition: background-color 0.2s ease;
 }
 
 button:hover {
-  background-color: #4e7a64;
+  background-color: #2b6b55;
 }
 
-/* --------- Footer --------- */
+/* ====== NOTE BOX ====== */
+.note {
+  font-size: 0.9rem;
+  color: #555;
+  background-color: #f0f9f6;
+  padding: 10px 14px;
+  border-left: 4px solid #3c8c74;
+  border-radius: 6px;
+  margin-bottom: 18px;
+}
+
+.note a {
+  color: #2b6b55;
+  text-decoration: underline;
+}
+
+/* ====== FOOTER ====== */
 footer {
-  background-color: #fff;
   text-align: center;
   padding: 20px;
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-  font-size: 0.95em;
+  margin-top: 40px;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  font-size: 0.9rem;
+  color: #666;
 }
 
-footer a {
-  color: #4e7a64;
-  text-decoration: none;
-}
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-footer a:hover {
-  text-decoration: underline;
+  .schedule {
+    padding: 25px 20px;
+  }
+
+  nav a {
+    margin: 0 10px;
+  }
 }
