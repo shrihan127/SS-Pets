@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SS Pets | Schedule a Visit</title>
+  <title>Book a Service | SS Pets</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <img src="images/ss-pets-logo.png" alt="SS Pets Logo" class="logo" />
+    <img src="images/ss-pets-logo.png" alt="SS Pets Logo" class="logo">
     <nav>
       <a href="index.html">Home</a>
       <a href="schedule.html" class="active">Schedule</a>
@@ -18,15 +18,16 @@
   </header>
 
   <main>
-    <section class="hero small">
-      <h1>Book a Walk or Sitting Session</h1>
-      <p>We’d love to care for your pet! Fill out the form below to schedule your visit.</p>
-    </section>
-
     <section class="schedule">
+      <h1>Book Your Service</h1>
+      <p>Fill out the form below to schedule a walk, sitting, or visit. We’ll get back to you soon to confirm your booking!</p>
+
       <form id="bookingForm">
         <label for="fullName">Full Name (First and Last):</label>
         <input type="text" id="fullName" name="fullName" placeholder="John Doe" required />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="(205) 123-4567" required />
 
         <label for="dogName">Dog’s Name:</label>
         <input type="text" id="dogName" name="dogName" placeholder="Buddy" required />
@@ -47,26 +48,23 @@
         <input type="time" id="time" name="time" required />
 
         <label for="dropLocation">Drop-Off Location:</label>
-        <input type="text" id="dropLocation" name="dropLocation" placeholder="123 Main St, Hoover, AL" required />
+        <select id="dropLocation" name="dropLocation" required>
+          <option value="chace-lake-park" selected>Chace Lake Park – Hoover, AL</option>
+        </select>
+
+        <p class="note">
+          🐾 All meetups and drop-offs take place at 
+          <strong>Chace Lake Park</strong>.  
+          View directions on our <a href="contact.html">Contact page</a>.
+        </p>
 
         <button type="submit">Book Now</button>
       </form>
     </section>
   </main>
 
-  <footer>
-    © 2025 SS Pets • 
-    <a href="tel:+12055551234">(205) 555-1234</a> • 
-    <a href="mailto:shrihan127@gmail.com">shrihan127@gmail.com</a>
-  </footer>
+  <footer>© 2025 SS Pets | All bookings meet at Chace Lake Park, Hoover, AL</footer>
 
-  <script>
-    // Redirect to success page after form submission
-    const form = document.getElementById('bookingForm');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      window.location.href = 'success.html';
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
