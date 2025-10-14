@@ -1,52 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SS Pets Schedule</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Service | SS Pets</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>SS Pets Schedule</h1>
-    </header>
+  <header>
+    <img src="images/ss-pets-logo.png" alt="SS Pets Logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="schedule.html" class="active">Schedule</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <main>
-        <section id="schedule">
-            <h2>Appointments</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Owner</th>
-                        <th>Pet</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Dropoff Location</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>blank</td>
-                        <td>blank</td>
-                        <td>10/14/2025</td>
-                        <td>10:00 AM</td>
-                        <td>Chace Lake Park</td>
-                    </tr>
-                    <tr>
-                        <td>blank</td>
-                        <td>blank</td>
-                        <td>10/15/2025</td>
-                        <td>2:00 PM</td>
-                        <td>Chace Lake Park</td>
-                    </tr>
-                    <!-- Add more appointments here -->
-                </tbody>
-            </table>
-        </section>
-    </main>
+  <main>
+    <section class="schedule">
+      <h1>Book Your Service</h1>
+      <p></p> <!-- intentionally left blank -->
 
-    <footer>
-        <p>&copy; 2025 SS Pets</p>
-    </footer>
+      <form id="bookingForm">
+        <label for="fullName">Full Name (First and Last):</label>
+        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="(205) 123-4567" required />
+
+        <label for="dogName">Dog’s Name:</label>
+        <input type="text" id="dogName" name="dogName" placeholder="Buddy" required />
+
+        <label for="service">Service:</label>
+        <select id="service" name="service" required>
+          <option value="">Select a service</option>
+          <option value="walk30">30-Minute Dog Walk – $15</option>
+          <option value="walk60">1-Hour Dog Walk – $30</option>
+          <option value="sitting">Pet Sitting / Drop-In – $45/hour</option>
+          <option value="overnight">Overnight / Full-Day Sitting – $60</option>
+        </select>
+
+        <label for="date">Preferred Date:</label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="time">Preferred Time:</label>
+        <input type="time" id="time" name="time" required />
+
+        <label for="dropLocation">Drop-Off Location:</label>
+        <select id="dropLocation" name="dropLocation" required>
+          <option value="chace-lake-park" selected>Chace Lake Park – Hoover, AL</option>
+        </select>
+
+        <p class="note">
+          🐾 All meetups and drop-offs take place at 
+          <strong>Chace Lake Park</strong>.  
+          View directions on our <a href="contact.html">Contact page</a>.
+        </p>
+
+        <button type="submit">Book Now</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>© 2025 SS Pets | All bookings meet at Chace Lake Park, Hoover, AL</footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
