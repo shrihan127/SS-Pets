@@ -3,38 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SS Pets | Schedule</title>
+  <title>SS Pets | Schedule a Visit</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <img src="images/ss-pets-logo.png" alt="SS Pets Logo" class="logo">
+    <img src="images/ss-pets-logo.png" alt="SS Pets Logo" class="logo" />
     <nav>
       <a href="index.html">Home</a>
-      <a href="schedule.html">Schedule</a>
+      <a href="schedule.html" class="active">Schedule</a>
       <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-    <section class="schedule-section">
-      <h1>Book a Service</h1>
-      <p>Select your preferred date, time, and service below.</p>
+    <section class="hero small">
+      <h1>Book a Walk or Sitting Session</h1>
+      <p>We’d love to care for your pet! Fill out the form below to schedule your visit.</p>
+    </section>
 
-      <form id="bookingForm" action="https://formspree.io/f/manpanyw" method="POST">
+    <section class="schedule">
+      <form id="bookingForm">
+        <label for="fullName">Full Name (First and Last):</label>
+        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required />
 
-        <label for="name">Your Name:</label>
-        <input type="text" id="name" name="name" required />
+        <label for="dogName">Dog’s Name:</label>
+        <input type="text" id="dogName" name="dogName" placeholder="Buddy" required />
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="service">Service Type:</label>
+        <label for="service">Service:</label>
         <select id="service" name="service" required>
-          <option value="">-- Select a Service --</option>
-          <option value="dog-walking">Dog Walking</option>
-          <option value="dog-sitting">Dog Sitting</option>
+          <option value="">Select a service</option>
+          <option value="walk30">30-Minute Dog Walk – $15</option>
+          <option value="walk60">1-Hour Dog Walk – $30</option>
+          <option value="sitting">Pet Sitting / Drop-In – $45/hour</option>
+          <option value="overnight">Overnight / Full-Day Sitting – $60</option>
         </select>
 
         <label for="date">Preferred Date:</label>
@@ -42,16 +45,28 @@
 
         <label for="time">Preferred Time:</label>
         <input type="time" id="time" name="time" required />
-<input type="hidden" name="_subject" value="New SS Pets Booking Request" />
-        <button type="submit" class="book-btn">Confirm Booking</button>
-      </form>
 
-      <p id="confirmationMessage" class="confirmation"></p>
+        <label for="dropLocation">Drop-Off Location:</label>
+        <input type="text" id="dropLocation" name="dropLocation" placeholder="123 Main St, Hoover, AL" required />
+
+        <button type="submit">Book Now</button>
+      </form>
     </section>
   </main>
 
-  <footer>© 2025 SS Pets</footer>
+  <footer>
+    © 2025 SS Pets • 
+    <a href="tel:+12055551234">(205) 555-1234</a> • 
+    <a href="mailto:shrihan127@gmail.com">shrihan127@gmail.com</a>
+  </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Redirect to success page after form submission
+    const form = document.getElementById('bookingForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      window.location.href = 'success.html';
+    });
+  </script>
 </body>
 </html>
