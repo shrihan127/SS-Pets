@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SS Pets | Contact</title>
+  <title>Contact | SS Pets</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <img src="images/ss-pets-logo.png" alt="SS Pets Logo" class="logo">
+    <img src="images/ss-pets-logo.png" alt="SS Pets Logo" class="logo" />
     <nav>
       <a href="index.html">Home</a>
       <a href="schedule.html">Schedule</a>
@@ -16,10 +16,54 @@
       <a href="contact.html" class="active">Contact</a>
     </nav>
   </header>
+
   <main>
-    <h1>Contact Us</h1>
-    <p>Email us at <a href="mailto:shrihan127@gmail.com">shrihan127@gmail.com</a></p>
+    <section class="contact">
+      <h1>Contact SS Pets</h1>
+      <p>We’d love to hear from you! You can reach us by text or email anytime.</p>
+
+      <div class="contact-info">
+        <p><strong>📱 Text Us:</strong> 
+          <a href="sms:6592575956" class="text-button">Text 659-257-5956</a>
+        </p>
+        <p><strong>✉️ Email Us:</strong> 
+          <a href="mailto:sspets@example.com">sspets@example.com</a>
+        </p>
+        <p><strong>📍 Meet-Up Location:</strong><br>
+          Chace Lake Park – Hoover, AL<br>
+          <a href="https://goo.gl/maps/9KhG5g4R8AE2" target="_blank">
+            View on Google Maps
+          </a>
+        </p>
+      </div>
+    </section>
   </main>
-  <footer>© 2025 SS Pets</footer>
+
+  <footer>© 2025 SS Pets | All meetups take place at Chace Lake Park, Hoover AL</footer>
+
+  <style>
+    .contact {
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .contact-info p {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
+    .text-button {
+      display: inline-block;
+      background-color: #ffb347;
+      color: #000;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .text-button:hover {
+      background-color: #ff9800;
+    }
+  </style>
 </body>
 </html>
