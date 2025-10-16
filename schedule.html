@@ -6,6 +6,7 @@
   <title>Book a Service | SS Pets</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
     <img src="images/ss-pets-logo.png" alt="SS Pets Logo" class="logo">
@@ -22,7 +23,7 @@
       <h1>Book Your Service</h1>
       <p></p> <!-- intentionally left blank -->
 
-      <!-- 👇 Add your actual Formspree endpoint here -->
+      <!-- Formspree integration -->
       <form id="bookingForm" method="POST" action="https://formspree.io/f/manpanyw">
         <label for="fullName">Full Name (First and Last):</label>
         <input type="text" id="fullName" name="fullName" required />
@@ -54,15 +55,14 @@
         </select>
 
         <p class="note">
-          🐾 All meetups and drop-offs take place at 
-          <strong>Chace Lake Park</strong>. 
-          View directions on our <a href="contact.html">Contact page</a>.
+          🐾 All meetups and drop-offs take place at
+          <strong>Chace Lake Park</strong>. View directions on our
+          <a href="contact.html">Contact page</a>.
         </p>
 
         <button type="submit">Book Now</button>
       </form>
 
-      <!-- 👇 Add this element so messages show up -->
       <p id="confirmationMessage"></p>
     </section>
   </main>
