@@ -1,4 +1,3 @@
-// SS Pets Booking Form Script
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("bookingForm");
   const confirmation = document.getElementById("confirmationMessage");
