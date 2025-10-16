@@ -22,11 +22,11 @@
       <h1>Book Your Service</h1>
       <p></p> <!-- intentionally left blank -->
 
-      <!-- ✅ Formspree form -->
+      <!-- 👇 Add your actual Formspree endpoint here -->
       <form 
         id="bookingForm" 
         method="POST" 
-        action="https://formspree.io/f/manpanyw"
+        action="https://formspree.io/f/YOUR_FORM_ID"
       >
         <label for="fullName">Full Name (First and Last):</label>
         <input type="text" id="fullName" name="fullName" required />
@@ -66,19 +66,13 @@
         <button type="submit">Book Now</button>
       </form>
 
-      <!-- 👇 Confirmation message + Text link -->
+      <!-- 👇 Add this element so messages show up -->
       <p id="confirmationMessage"></p>
-
-      <p class="text-us">
-        📱 Prefer texting? <a href="sms:+16592575956">Text us at (659) 257-5956</a>
-      </p>
     </section>
   </main>
 
-  <footer>
-    © 2025 SS Pets | All bookings meet at Chace Lake Park, Hoover, AL  
-    <br>🐾 First session is free of charge!
-  </footer>
+  <footer>© 2025 SS Pets | All bookings meet at Chace Lake Park, Hoover, AL</footer>
+  <footer>First session is free of charge!</footer>
 
   <script src="script.js"></script>
 </body>
