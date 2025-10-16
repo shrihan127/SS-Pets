@@ -3,111 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book a Walk – SS Pets</title>
+  <title>Book a Service | SS Pets</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fafafa;
-      color: #333;
-      text-align: center;
-      padding: 20px;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 30px;
-    }
-    h1 {
-      color: #ff7f50;
-      margin-bottom: 10px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    input, select, textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    button {
-      background-color: #ff7f50;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
-    button:hover {
-      background-color: #ff956b;
-    }
-    .info {
-      margin-top: 25px;
-      font-size: 0.95rem;
-      color: #555;
-    }
-    .info a {
-      color: #ff7f50;
-      text-decoration: none;
-    }
-    .info a:hover {
-      text-decoration: underline;
-    }
-  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Book a Walk</h1>
-    <p>Drop-off Location: <strong>Chace Lake Park</strong></p>
-    <p><a href="https://www.google.com/maps?q=1860+Chace+Dr,+Hoover,+AL+35244" target="_blank">📍 1860 Chace Dr, Hoover, AL 35244</a></p>
+  <header>
+    <img src="images/ss-pets-logo.png" alt="SS Pets Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="schedule.html" class="active">Schedule</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <form action="https://formspree.io/f/manpanyw" method="POST" id="bookingForm">
-      <input type="text" name="owner_name" placeholder="Your Name" required />
-      <input type="text" name="pet_name" placeholder="Pet's Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <input type="date" name="date" required />
-      <select name="time" required>
-        <option value="">Select Time</option>
-        <option value="morning">Morning (8 AM - 11 AM)</option>
-        <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
-        <option value="evening">Evening (5 PM - 8 PM)</option>
-      </select>
-      <textarea name="notes" placeholder="Additional Notes"></textarea>
-      <button type="submit">Book Now</button>
-    </form>
+  <main>
+    <section class="schedule">
+      <h1>Schedule a Service</h1>
+      <p class="lead">Book a walk, drop-in visit, or overnight sitting. We’ll confirm your booking shortly.</p>
 
-    <div class="info">
-      <p>Prefer to text? 📱 Text us at <strong>659-257-5956</strong></p>
-    </div>
-  </div>
+      <!-- Formspree form — keeps redirect to thankyou.html after success -->
+      <form id="bookingForm" method="POST" action="https://formspree.io/f/manpanyw">
+        <input type="hidden" name="_redirect" value="https://shrihan127.github.io/SS-Pets/thankyou.html" />
 
-  <script>
-    const form = document.getElementById('bookingForm');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          window.location.href = "thankyou.html";
-        } else {
-          alert("Oops! There was a problem submitting your form.");
-        }
-      }).catch(error => {
-        alert("Network error. Please try again later.");
-      });
-    });
-  </script>
+        <label for="fullName">Full name (first &amp; last)</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required />
+
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required />
+
+        <label for="dogName">Pet’s name</label>
+        <input type="text" id="dogName" name="dogName" placeholder="Buddy" required />
+
+        <label for="service">Service</label>
+        <select id="service" name="service" required>
+          <option value="">— Select a service —</option>
+          <option value="walk30">30-Minute Dog Walk — $15</option>
+          <option value="walk60">1-Hour Dog Walk — $30</option>
+          <option value="sitting">Pet Sitting / Drop-In — $45/hour</option>
+          <option value="overnight">Overnight / Full-Day Sitting — $60</option>
+        </select>
+
+        <label for="date">Preferred date</label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="time">Preferred time</label>
+        <input type="time" id="time" name="time" required />
+
+        <label for="dropLocation">Drop-off location</label>
+        <select id="dropLocation" name="dropLocation" required>
+          <option value="chace-lake-park" selected>Chace Lake Park — 1860 Chace Dr, Hoover, AL 35244</option>
+        </select>
+
+        <p class="note">
+          🐾 All meetups and drop-offs take place at <strong>Chace Lake Park</strong>. 
+          <a href="https://www.google.com/maps?q=1860+Chace+Dr,+Hoover,+AL+35244" target="_blank" rel="noopener">View on Google Maps</a>.
+        </p>
+
+        <button type="submit">Book Now</button>
+      </form>
+
+      <!-- Confirmation message will be shown here by script.js -->
+      <p id="confirmationMessage" aria-live="polite"></p>
+
+      <p class="text-us">📱 Prefer texting? <a href="sms:6592575956">Text us at 659-257-5956</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 SS Pets | All bookings meet at Chace Lake Park, Hoover, AL<br>
+    First session is free of charge!
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
