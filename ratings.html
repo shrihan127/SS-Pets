@@ -9,19 +9,59 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #fffaf5;
-      padding: 20px;
+      margin: 0;
+    }
+
+    /* --- NAVBAR --- */
+    nav {
+      background-color: #f28500;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav h2 {
+      color: white;
+      margin: 0;
+      font-size: 1.3em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      gap: 20px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: opacity 0.2s;
+    }
+    nav ul li a:hover {
+      opacity: 0.8;
+    }
+
+    /* --- PAGE CONTENT --- */
+    main {
       text-align: center;
+      padding: 30px 20px;
     }
-    h1 {
-      color: #333;
-    }
+
     .rating-container {
       background: white;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 20px;
       box-shadow: 0 0 8px rgba(0,0,0,0.1);
       max-width: 600px;
       margin: 20px auto;
+    }
+    h1 {
+      color: #333;
     }
     .stars {
       display: flex;
@@ -46,18 +86,20 @@
       border: 1px solid #ccc;
       padding: 10px;
       resize: none;
+      font-size: 14px;
     }
     button {
       margin-top: 10px;
-      background: #f28500;
+      background: #28a745; /* green */
       color: white;
       border: none;
       padding: 10px 20px;
       border-radius: 8px;
       cursor: pointer;
+      transition: background 0.2s;
     }
     button:hover {
-      background: #e07500;
+      background: #218838;
     }
     .reviews {
       margin-top: 30px;
@@ -76,28 +118,62 @@
     .review .stars {
       justify-content: left;
     }
+
+    footer {
+      margin-top: 50px;
+      padding: 15px;
+      text-align: center;
+      background-color: #f28500;
+      color: white;
+    }
+
+    /* Simple smooth transitions for SPA-style links */
+    .fade {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
   </style>
 </head>
 <body>
-  <h1>🐾 SS Pets Ratings & Reviews</h1>
-  <div class="rating-container">
-    <h3>Leave a Rating</h3>
-    <div class="stars" id="starRating">
-      <span data-value="1">★</span>
-      <span data-value="2">★</span>
-      <span data-value="3">★</span>
-      <span data-value="4">★</span>
-      <span data-value="5">★</span>
-    </div>
-    <textarea id="comment" placeholder="Write your comment..."></textarea><br>
-    <button id="submitBtn">Submit</button>
-  </div>
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <h2>SS Pets</h2>
+    <ul>
+      <li><a href="index.html" class="nav-link" data-link>Home</a></li>
+      <li><a href="schedule.html" class="nav-link" data-link>Schedule</a></li>
+      <li><a href="services.html" class="nav-link" data-link>Services</a></li>
+      <li><a href="ratings.html" class="nav-link active" data-link>Ratings</a></li>
+      <li><a href="contact.html" class="nav-link" data-link>Contact</a></li>
+    </ul>
+  </nav>
 
-  <div class="reviews" id="reviews">
-    <h3>What Others Said</h3>
-  </div>
+  <main id="pageContent">
+    <h1>🐾 SS Pets Ratings & Reviews</h1>
+
+    <div class="rating-container">
+      <h3>Leave a Rating</h3>
+      <div class="stars" id="starRating">
+        <span data-value="1">★</span>
+        <span data-value="2">★</span>
+        <span data-value="3">★</span>
+        <span data-value="4">★</span>
+        <span data-value="5">★</span>
+      </div>
+      <textarea id="comment" placeholder="Write your comment..."></textarea><br>
+      <button id="submitBtn">Submit</button>
+    </div>
+
+    <div class="reviews" id="reviews">
+      <h3>What Others Said</h3>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 SS Pets. All rights reserved.
+  </footer>
 
   <script>
+    // ---- STAR RATING LOGIC ----
     const stars = document.querySelectorAll("#starRating span");
     const commentBox = document.getElementById("comment");
     const submitBtn = document.getElementById("submitBtn");
@@ -143,6 +219,18 @@
       `).join("");
       reviewsDiv.innerHTML = "<h3>What Others Said</h3>" + list;
     }
+
+    // ---- SIMPLE SPA NAVIGATION (NO FULL PAGE RELOAD) ----
+    document.querySelectorAll('[data-link]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = link.getAttribute('href');
+        document.body.classList.add('fade');
+        setTimeout(() => {
+          window.location.href = url;
+        }, 200);
+      });
+    });
   </script>
 </body>
 </html>
