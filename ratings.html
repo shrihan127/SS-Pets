@@ -5,182 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ratings & Reviews | SS Pets</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fffaf5;
-      margin: 0;
-    }
-
-    /* --- NAVBAR --- */
-    nav {
-      background-color: #f28500;
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    nav h2 {
-      color: white;
-      margin: 0;
-      font-size: 1.3em;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-      gap: 20px;
-    }
-    nav ul li {
-      display: inline;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: opacity 0.2s;
-    }
-    nav ul li a:hover {
-      opacity: 0.8;
-    }
-
-    /* --- PAGE CONTENT --- */
-    main {
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    .rating-container {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: 20px auto;
-    }
-    h1 {
-      color: #333;
-    }
-    .stars {
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-      margin: 10px 0;
-    }
-    .stars span {
-      font-size: 30px;
-      cursor: pointer;
-      color: #ccc;
-      transition: color 0.2s;
-    }
-    .stars span.active {
-      color: gold;
-    }
-    textarea {
-      width: 90%;
-      height: 80px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      padding: 10px;
-      resize: none;
-      font-size: 14px;
-    }
-    button {
-      margin-top: 10px;
-      background: #28a745; /* green */
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    button:hover {
-      background: #218838;
-    }
-    .reviews {
-      margin-top: 30px;
-      text-align: left;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .review {
-      background: #fff;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 4px rgba(0,0,0,0.1);
-    }
-    .review .stars {
-      justify-content: left;
-    }
-
-    footer {
-      margin-top: 50px;
-      padding: 15px;
-      text-align: center;
-      background-color: #f28500;
-      color: white;
-    }
-
-    /* Simple smooth transitions for SPA-style links */
-    .fade {
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-  </style>
 </head>
 <body>
-  <!-- NAVIGATION BAR -->
-  <nav>
-    <h2>SS Pets</h2>
-    <ul>
-      <li><a href="index.html" class="nav-link" data-link>Home</a></li>
-      <li><a href="schedule.html" class="nav-link" data-link>Schedule</a></li>
-      <li><a href="services.html" class="nav-link" data-link>Services</a></li>
-      <li><a href="ratings.html" class="nav-link active" data-link>Ratings</a></li>
-      <li><a href="contact.html" class="nav-link" data-link>Contact</a></li>
-    </ul>
-  </nav>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <img src="images/logo.png" alt="SS Pets Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="services.html">Services</a>
+      <a href="ratings.html" class="active">Ratings</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <main id="pageContent">
-    <h1>🐾 SS Pets Ratings & Reviews</h1>
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <section class="schedule">
+      <h1>🐾 Ratings & Reviews</h1>
+      <p>We’d love to hear your feedback! Leave a star rating and a quick comment below.</p>
 
-    <div class="rating-container">
-      <h3>Leave a Rating</h3>
-      <div class="stars" id="starRating">
-        <span data-value="1">★</span>
-        <span data-value="2">★</span>
-        <span data-value="3">★</span>
-        <span data-value="4">★</span>
-        <span data-value="5">★</span>
+      <div class="note">
+        Your reviews are stored locally on your browser — visible only to you.
       </div>
-      <textarea id="comment" placeholder="Write your comment..."></textarea><br>
-      <button id="submitBtn">Submit</button>
-    </div>
 
-    <div class="reviews" id="reviews">
-      <h3>What Others Said</h3>
-    </div>
+      <!-- Rating Form -->
+      <div id="ratingForm">
+        <label for="starRating">Your Rating</label>
+        <div id="starRating" class="stars">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
+
+        <label for="comment">Your Comment</label>
+        <textarea id="comment" placeholder="Write your comment..." rows="4"></textarea>
+
+        <button id="submitBtn">Submit Review</button>
+      </div>
+
+      <!-- Reviews Section -->
+      <div class="reviews" id="reviews" style="margin-top: 30px;">
+        <h2 style="text-align:center; color:#2b6b55; margin-bottom:15px;">What Others Said</h2>
+      </div>
+    </section>
   </main>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
     © 2025 SS Pets. All rights reserved.
   </footer>
 
+  <!-- ===== SCRIPT ===== -->
   <script>
-    // ---- STAR RATING LOGIC ----
     const stars = document.querySelectorAll("#starRating span");
     const commentBox = document.getElementById("comment");
     const submitBtn = document.getElementById("submitBtn");
     const reviewsDiv = document.getElementById("reviews");
     let selectedRating = 0;
 
-    // Load saved reviews
     const savedReviews = JSON.parse(localStorage.getItem("reviews")) || [];
     displayReviews(savedReviews);
 
@@ -195,7 +80,7 @@
     submitBtn.addEventListener("click", () => {
       const comment = commentBox.value.trim();
       if (selectedRating === 0 || comment === "") {
-        alert("Please select a rating and write a comment!");
+        alert("Please select a rating and enter a comment!");
         return;
       }
       const review = { rating: selectedRating, comment, date: new Date().toLocaleString() };
@@ -209,28 +94,65 @@
 
     function displayReviews(reviews) {
       const list = reviews.map(r => `
-        <div class="review">
-          <div class="stars">
+        <div class="note" style="margin-bottom:10px; background:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05); padding:15px;">
+          <div style="color:#3c8c74; font-size:20px;">
             ${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}
           </div>
-          <p>${r.comment}</p>
-          <small>${r.date}</small>
+          <p style="margin:8px 0; color:#333;">${r.comment}</p>
+          <small style="color:#777;">${r.date}</small>
         </div>
       `).join("");
-      reviewsDiv.innerHTML = "<h3>What Others Said</h3>" + list;
+      reviewsDiv.innerHTML = `
+        <h2 style="text-align:center; color:#2b6b55; margin-bottom:15px;">What Others Said</h2>
+        ${list || '<p style="text-align:center; color:#777;">No reviews yet. Be the first to leave one!</p>'}
+      `;
     }
 
-    // ---- SIMPLE SPA NAVIGATION (NO FULL PAGE RELOAD) ----
-    document.querySelectorAll('[data-link]').forEach(link => {
-      link.addEventListener('click', (e) => {
+    // Smooth transition navigation
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", (e) => {
         e.preventDefault();
-        const url = link.getAttribute('href');
-        document.body.classList.add('fade');
-        setTimeout(() => {
-          window.location.href = url;
-        }, 200);
+        const href = link.getAttribute("href");
+        document.body.style.opacity = 0;
+        setTimeout(() => window.location.href = href, 150);
       });
     });
   </script>
+
+  <style>
+    /* Match global style.css theme */
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+      margin-bottom: 18px;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: #3c8c74;
+    }
+
+    .stars {
+      display: flex;
+      justify-content: left;
+      gap: 6px;
+      margin: 8px 0 16px 0;
+      cursor: pointer;
+      font-size: 28px;
+    }
+
+    .stars span {
+      color: #ccc;
+      transition: color 0.2s;
+    }
+
+    .stars span.active {
+      color: #f4c542;
+    }
+  </style>
 </body>
 </html>
