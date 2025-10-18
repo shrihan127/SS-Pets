@@ -30,6 +30,12 @@
       </div>
     </section>
   </main>
+<script>
+  // Prevent selecting past dates
+  const dateInput = document.getElementById('date');
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.min = today;
+</script>
 
   <footer>© 2025 SS Pets</footer>
 </body>
