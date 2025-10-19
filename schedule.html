@@ -76,5 +76,11 @@
   <footer>© 2025 SS Pets </footer>
   
   <script src="script.js"></script>
+  <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const dateInput = document.getElementById("date");
+    const today = new Date().toISOString().split("T")[0];
+    dateInput.setAttribute("min", today);
+  });
 </body>
 </html>
