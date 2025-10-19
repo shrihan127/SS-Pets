@@ -23,7 +23,7 @@
     <section class="schedule">
       <h1>Book Your Service</h1>
       <p></p> <!-- intentionally left blank -->
-<p>The first session is free of charge!</p>
+      <p>The first session is free of charge!</p>
       <!-- Formspree integration -->
       <form id="bookingForm" method="POST" action="https://formspree.io/f/manpanyw">
         <label for="fullName">Full Name (First and Last):</label>
@@ -76,11 +76,16 @@
   <footer>© 2025 SS Pets </footer>
   
   <script src="script.js"></script>
+
+  <!-- ✅ Add this small script at the very bottom -->
   <script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const dateInput = document.getElementById("date");
-    const today = new Date().toISOString().split("T")[0];
-    dateInput.setAttribute("min", today);
-  });
+    window.addEventListener("DOMContentLoaded", () => {
+      const dateInput = document.getElementById("date");
+      if (dateInput) {
+        const today = new Date().toISOString().split("T")[0];
+        dateInput.setAttribute("min", today);
+      }
+    });
+  </script>
 </body>
 </html>
